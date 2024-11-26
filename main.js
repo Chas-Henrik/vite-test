@@ -2,6 +2,18 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+import axios from 'axios';
+
+async function fetchData(){
+  try {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/2');
+      console.log('Data:', response.data);
+  } catch (error) {
+      console.error('Error fetching data', error);
+  }
+}
+
+fetchData();
 
 document.querySelector('#app').innerHTML = `
   <div>
